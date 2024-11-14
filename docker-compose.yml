@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  postgresdb:
+    image: postgres
+    container_name: postgresdb
+    environment:
+      - POSTGRES_USER=sa
+      - POSTGRES_PASSWORD=password
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=testdb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_testdb:/var/lib/postgresql/data/
+
+volumes:
+  postgres_testdb:
